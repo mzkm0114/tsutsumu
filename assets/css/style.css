@@ -1,0 +1,1130 @@
+@charset "UTF-8";
+
+/* --- ヘッダー：高さを60pxに固定し、中身を中央に寄せる --- */
+.header {
+  background-color: #ffffff;
+  height: 80px;   /* ← PCは少し高めに */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+}
+
+
+/* --- ヘッダーの中身を整える --- */
+.header-inner {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; から変更 */
+  justify-content: space-between; 
+}
+
+/* --- ナビゲーションをロゴのすぐ右ではなく、右側に寄せる --- */
+.nav {
+  margin-left: auto;   /* ロゴとの間を空けて右に寄せる */
+  margin-right: 30px;  /* エントリーボタンとの間に少し隙間を作る */
+}
+
+.header-controls {
+  margin-left: auto;   /* ← 右端へまとめて飛ばす */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ロゴ全体のリンクエリア */
+.logo a {
+  display: flex;
+  align-items: center; /* 画像とテキストを上下中央で揃える */
+  text-decoration: none;
+  gap: 10px; /* 画像とテキストの間の距離 */
+}
+
+/* ロゴ画像の設定 */
+.logo img {
+  height: 30px; /* ヘッダーの高さに合わせて調整してください */
+  width: auto;
+  display: block;
+}
+
+/* 「採用サイト」のテキスト設定 */
+.logo-text {
+  font-size: 12px;
+  color: #5d4037; /* お好みの色に */
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  white-space: nowrap; /* 改行させない */
+  /* もし画像の下に配置したい場合は、.logo a の flex-direction を column に変えます */
+}
+
+.nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #666;
+}
+
+.entry-btn {
+  margin-left: auto;   /* ← これが一番大事 */
+  background: #f47c6a;
+  color: #fff;
+  padding: 14px 48px;   /* ← 大きさ */
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+
+/* --- スマホ時のハンバーガーボタンとの並び --- */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.entry-btn:hover {
+  opacity: 0.85;
+}
+
+
+/* --- メインビジュアル全体の調整 --- */
+.mainvisual {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* PCでは画面いっぱい */
+  background-image: url("../images/mv.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 60%;
+}
+
+.mainvisual-copy {
+  position: absolute;
+  right: 50px;
+  bottom: 80px;
+  text-align: right;
+  z-index: 10;
+}
+
+.mainvisual-copy p {
+  text-align: center;
+  writing-mode: horizontal-tb;
+  font-size: 48px;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  margin: 0;
+}
+
+/* --- Aboutセクション全体 --- */
+.about {
+  background-color: #f8d9c1;
+  position: relative;
+  padding: 30px 0 100px; /* ← 上に余白を少し増やす */
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: -100px; /* 波の高さ分マイナス */
+  left: 0;
+  width: 100%;
+  height: 120px; /* 素材の高さに合わせる */
+  background-image: url("../images/uneune.png"); /* ← あなたの素材名 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 左右の画像ブロック */
+.about-left-block {
+  flex: 0 0 280px;
+  position: absolute;
+  top:-40px;
+  left:50px;
+}
+
+.about-right-block {
+  flex: 0 0 280px;
+  position: absolute;
+  top:100px;
+  left:900px;
+}
+
+.about-image-wrapper {
+  border: 4px solid #fff;
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  background-color: #fff;
+}
+
+.about-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 画像の丸み */
+.about-left-block .about-image-wrapper {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.about-right-block .about-image-wrapper {
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+}
+
+/* --- お花の調整（サイズ・位置・傾き） --- */
+.about-flower-icon {
+  position: absolute;
+  bottom: -50px; 
+  left: -60px;   
+  width: 60px;   
+  transform: rotate(-15deg); 
+  z-index: 10;
+  pointer-events: none;
+}
+
+.about-flower-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- 中央テキストブロック：完全中央揃え --- */
+.about-content-block {
+  flex: 1;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.about-title {
+  font-size: 24px;
+  color: #8d6e63;
+  margin-bottom: 20px;
+}
+
+.about-lead {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5d4037;
+  margin-bottom: 25px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 2;
+  color: #5d4037;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+/* もっと詳しくボタン */
+.about-more-btn {
+  display: inline-block;
+  background: #f2a08a;
+  color: #fff !important;
+  padding: 14px 60px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.about-more-btn:hover {
+  opacity: 0.8;
+}
+
+
+/* 以降、サービス・フッター・共通設定 */
+.service {
+  background-color: #999999;
+  height: 500px;
+}
+
+.footer {
+  background-color: #e8e4e1; /* ベージュ色 */
+  padding: 60px 0 40px;      /* 上下に適切な余白をいれる */
+  height: auto;              /* 固定の500pxを解除 */
+  text-align: center;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color:#fff;
+  font-family: "Yu Gothic", "游ゴシック", "YuGothic", "游ゴシック体", "Osaka", "Verdana", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-weight: 500;
+}
+
+.example {
+  font-size: 50px;
+  color: #99293D;
+}
+
+/* Businessセクション */
+.business {
+  background: #fff7ed;
+  padding: 30px 0 100px;
+  position: relative;
+}
+
+.business::before {
+  content: "";
+  position: absolute;
+  top: -100px; /* 波の高さ分マイナス */
+  left: 0;
+  width: 100%;
+  height: 120px; /* 素材の高さに合わせる */
+  background-image: url("../images/uneuneb_under.png"); /* ← あなたの素材名 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.business-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.business-title {
+  font-size: 28px;
+  color: #7a665a;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.business-lead {
+  font-size: 14px;
+  color: #7a665a;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+.business-list {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.business-item {
+  width: 300px;
+  text-align: center;
+}
+
+/* PC専用（769px以上）の時だけ正方形にする設定 */
+@media screen and (min-width: 769px) {
+  .business-list .business-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* PCは正方形 */
+    object-fit: cover;
+    border-radius: 24px;
+    margin-bottom: 20px;
+  }
+}
+
+.business-item h3 {
+  font-size: 18px;
+  color: #7a665a;
+  margin-bottom: 12px;
+}
+
+.business-item p {
+  font-size: 13px;
+  color: #7a665a;
+  line-height: 1.8;
+}
+
+.business-btn a {
+  display: inline-block;
+  background: #f58b74;
+  color: #fff;
+  padding: 16px 36px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* --- Workstyleセクション全体 --- */
+.workstyle {
+  background-color: #f8d9c1; /* 背景色：薄オレンジ */
+  position: relative;
+  padding: 30px 0 100px;
+  width: 100%;
+}
+
+.workstyle ::before {
+  content: "";
+  position: absolute;
+  top: -100px; /* 波の高さ分マイナス */
+  left: 0;
+  width: 100%;
+  height: 120px; /* 素材の高さに合わせる */
+  background-image: url("../images/uneune.png"); /* ← あなたの素材名 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.workstyle-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  /* ★ここが重要：中身を縦に並べて中央揃えにする */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+/* タイトル */
+.workstyle-title {
+  font-size: 28px;
+  color: #8d6e63;
+  margin-bottom: 20px;
+  font-weight: bold;
+  width: 100%; /* 幅をいっぱいにして中央寄せを確実にする */
+}
+
+/* リード文 */
+.workstyle-lead {
+  font-size: 14px;
+  color: #5d4037;
+  line-height: 1.8;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+/* 3カラムリスト */
+.workstyle-list {
+  display: flex;
+  gap: 40px;
+  justify-content: center; /* 横方向の中央寄せ */
+  align-items: flex-start;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.workstyle-item {
+  flex: 0 0 250px; /* 各アイテムの幅 */
+  text-align: center;
+}
+
+.workstyle-item h3 {
+  font-size: 18px;
+  color: #5d4037;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* 白い正円 */
+.workstyle-circle {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 auto; /* 円自体を中央に */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.workstyle-circle img {
+  width: 70%;
+  height: auto;
+}
+
+/* ボタン */
+.workstyle-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* --- Membersセクション全体 --- */
+.members {
+  background-color: #fff7ed; /* 背景は白 */
+  position: relative;
+  padding: 30px 0;
+}
+
+.members::before {
+  content: "";
+  position: absolute;
+  top: -100px; /* 波の高さ分マイナス */
+  left: 0;
+  width: 100%;
+  height: 120px; /* 素材の高さに合わせる */
+  background-image: url("../images/uneuneb_under.png"); /* ← あなたの素材名 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.members-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.members-title {
+  font-size: 28px;
+  color: #8d6e63;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.members-lead {
+  font-size: 14px;
+  color: #5d4037;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+/* 2カラム×2行のグリッド */
+.members-list {
+  display: flex;
+  flex-wrap: wrap; /* 折り返して2列にする */
+  gap: 60px 40px; /* 縦の間隔を広めにとる */
+  justify-content: center;
+  width: 100%;
+}
+
+.members-item {
+  width: calc(50% - 20px); /* 2列にする設定 */
+  max-width: 480px;
+  text-align: center;
+}
+
+.members-item.reverse .members-image img {
+  transform: scaleX(-1);
+}
+
+/* --- オレンジのカード全体 --- */
+.members-card {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #fff;
+}
+
+
+.members-image {
+  position: relative;   /* ← ★これを追加 */
+  width: 100%;
+  line-height: 0;
+}
+
+
+.members-image img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom; /* 隙間対策 */
+}
+
+/* --- 下半分のオレンジエリア --- */
+.members-info {
+  background-color: #e8cbb7;  /* ベージュ */
+  color: #5d4037;
+  padding: 10px 30px;
+  position: relative;
+}
+
+
+.members-role {
+  font-size: 13px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.members-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 白い矢印ボタン（少し大きくしました） */
+.members-arrow {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%); /* 縦方向の真ん中に置く */
+  width: 50px;
+  height: 50px;
+  background-color: #f2a08a;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* 下のメッセージ文 */
+.members-message {
+    position: absolute;
+    bottom: 110px;
+    left: 20px;
+      background: linear-gradient(
+    90deg,
+    #f28b74 0%,
+    #f6a18f 100%);
+    color: #fff;
+    padding: 12px 13px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+
+
+
+.members-card {
+  transition: transform 0.3s ease;
+}
+.members-card:hover {
+  transform: translateY(-8px); /* マウスを乗せると少し浮き上がる */
+}
+
+.members-card:hover .members-arrow {
+  background-color: #5d4037; /* ホバーした時だけ矢印の色を変える */
+  color: #fff;
+}
+
+/* --- Entryセクション全体 --- */
+.entry {
+  background-color: #f8d9c1; /* 背景色：薄オレンジ */
+  background-color: #; /* 画像の背景色 */
+  padding: 100px 0;
+  text-align: center;
+}
+
+.entry-inner {
+  max-width: 1000px; /* 画像のバランスに合わせる */
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.entry-title {
+  font-size: 28px;
+  color: #8d6e63;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.entry-lead {
+  font-size: 14px;
+  color: #5d4037;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+/* --- 職種カード --- */
+.entry-list {
+  background-color: #f8d9c1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.entry-item {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  border-radius: 100px; /* カプセル型 */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.entry-item:hover {
+  background-color: #c3a69d;
+}
+
+.entry-item-info {
+  text-align: left;
+}
+
+.entry-category {
+  font-size: 13px;
+  color: #f8d9c1; /* オレンジ色 */
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.entry-job-title {
+  font-size: 20px;
+  color: #5d4037;
+  font-weight: bold;
+}
+
+/* 矢印の色と形 */
+.entry-item-arrow {
+  font-size: 28px;
+  color: #f2a08a; /* デフォルトはオレンジ */
+  font-weight: 300;
+}
+
+/* ホバー時の文字色一括変更 */
+.entry-item:hover .entry-category,
+.entry-item:hover .entry-job-title,
+.entry-item:hover .entry-item-arrow {
+  color: #fff;
+}
+
+/* --- 下部の大きなボタン --- */
+.entry-btn-container {
+  margin-top: 40px;
+}
+
+.entry-all-btn {
+  display: inline-block;
+  background-color: #e69b82; /* 画像に近い落ち着いたオレンジ */
+  color: #fff;
+  text-decoration: none;
+  padding: 18px 80px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.entry-all-btn:hover {
+  opacity: 0.8;
+}
+
+/* --- 職種カテゴリー一覧 (entry) --- */
+.entry-categories {
+  max-width: 900px;
+  margin: 0 auto 60px; /* 下に余白を空ける */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 白いボックス部分 */
+.entry-category-header {
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.entry-category-header span {
+  font-size: 18px;
+  color: #5d4037;
+  font-weight: bold;
+}
+
+/* 右側のV字アイコン */
+.entry-category-icon {
+  width: 20px;
+  height: 10px;
+  position: relative;
+}
+
+.entry-category-icon::before,
+.entry-category-icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 1.5px;
+  background-color: #5d4037;
+}
+
+.entry-category-icon::before {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+.entry-category-icon::after {
+  right: 0;
+  transform: rotate(-45deg);
+  transform-origin: right center;
+}
+
+/* ホバー時の動き */
+.entry-category-header:hover {
+  background-color: #fef8f5;
+  transform: translateY(-2px);
+}
+
+/* =================================================
+   選考の流れ (Entry Flow) - 完全版
+   ================================================= */
+
+.entry-flow {
+  background-color: #fff7ed;
+      padding: 30px;
+  text-align: center;
+}
+
+.entry-flow-title {
+  font-size: 24px;
+  color: #8d6e63;
+  margin-bottom: 30px; /* 数字との距離を確保 */
+  font-weight: bold;
+}
+
+.entry-flow-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0; /* 点線でつなぐため隙間は0 */
+}
+
+.entry-flow-item {
+  position: relative;
+  width: 180px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px; /* 数字を丸の上に置くためのスペース */
+}
+
+/* 数字：丸にかぶらないよう、上に配置 */
+.entry-flow-number {
+  position: absolute;
+  top: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px; 
+  color: #f2a08a;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  line-height: 1;
+}
+
+/* 丸い枠 */
+.entry-flow-circle {
+  width: 130px; 
+  height: 130px;
+  background-color: #fff;
+  border: 1.5px solid #f2a08a; /* 画像に合わせて少し細い線に */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  z-index: 2; /* 点線より上に表示 */
+}
+
+/* アイコン画像：大きく調整 */
+.entry-flow-circle img {
+  width: 75px; /* ここでお好みの大きさに微調整してください */
+  height: auto;
+  object-fit: contain;
+}
+
+/* 下のテキスト */
+.entry-flow-text {
+  font-size: 16px;
+  color: #5d4037;
+  font-weight: bold;
+}
+
+/* --- アイコン同士をつなぐ点線 --- */
+.entry-flow-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 115px; /* 数字(50px) + 丸の中心までの距離 */
+  right: -30px; /* 次のアイテムとの間隔 */
+  width: 60px;
+  border-top: 2px dotted #f2a08a;
+  z-index: 1;
+}
+
+/* --- コンタクトセクション --- */
+.entry-contact {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* ★ ../ をつけることで cssフォルダから出て imagesフォルダを探しに行けます */
+  background-image: url('../images/contact-bg.jpg'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* 画像を少し明るく/白っぽく見せるオーバーレイ */
+.entry-contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* 白い半透明の膜 */
+}
+
+.entry-contact-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.entry-contact-lead {
+  font-size: 24px;
+  color: #5d4037;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.entry-contact-btn {
+  display: inline-block;
+  background-color: #f2a08a; /* ボタンのオレンジ */
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 80px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.entry-contact-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* --- フッター --- */
+.footer {
+  background-color: #e8e4e1; /* 画像のような薄いグレーベージュ */
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #5d4037;
+  font-size: 14px;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #8d6e63;
+}
+
+/* ハンバーガーメニュー */
+.menu-btn {
+  display: none;   /* ← PCでは非表示 */
+  background: none;
+  border: none;
+  width: 32px;
+  height: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #5d4037;
+  border-radius: 2px;
+
+
+}/* --- PC時の基本設定（念のため追加） --- */
+.u-mobile-only {
+  display: none;
+}
+.u-desktop-only {
+  display: block; /* もしインライン要素なら inline など適宜変更 */
+}
+
+/* --- スマホレスポンシブ (768px以下) --- */
+@media screen and (max-width: 768px) {
+  /* !importantを使わず、セレクタを重ねて詳細度を上げる */
+  .about-inner .u-desktop-only {
+    display: none;
+  }
+  .about-inner .u-mobile-only {
+    display: inline;
+  }
+
+  /* レイアウトを縦並びにして中央寄せ */
+  .about-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  /* タイトルを一番上に配置 */
+  .about-content-block .about-title {
+    order: -2;
+    margin-bottom: 15px;
+  }
+
+  /* 画像ブロックをタイトルの直下に配置 */
+  .about-inner .about-left-block {
+    order: -1; 
+    margin-bottom: 25px;
+    position: static;
+  }
+
+  /* 画像の形を理想の歪な丸にする */
+  .about-left-block .about-image-wrapper img {
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
+  /* テキストの調整 */
+  .about-content-block .about-lead {
+    font-size: 1.rem;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .about-content-block .about-text p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+  }
+
+  /* ボタンを縦から横へ */
+  .about-content-block .about-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: horizontal-tb;
+    width: 200px;
+    height: auto;
+    padding: 15px 0;
+    margin: 0 auto;
+    border-radius: 30px;
+    background-color: #f27f6c;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .about-more-btn span {
+    margin-left: 8px;
+    font-size: 10px;
+  }
+
+  /* --- Business（事業について）セクションの修正 --- */
+  .business-inner {
+    padding: 50px 20px;
+  }
+
+  .business .business-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0;
+  }
+
+  .business-list .business-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 画像のコンテナ */
+  .business-item .business-image {
+    width: 92%; 
+    margin: 0 auto 20px;
+  }
+
+  /* 【最重要】2枚目以降も確実に横長にする詳細度高めの設定 */
+  .business-inner .business-list .business-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* 横長に固定 */
+    object-fit: cover;    /* 縦横比が崩れないよう切り抜き */
+    border-radius: 20px;
+  }
+
+  .business-item .business-item-text {
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  /* 3. Aboutの画像追加調整（スマホ用サイズ） */
+  .about-left-block .about-image-wrapper {
+    margin: 0 auto;
+    width: 250px;
+    height: 200px; 
+    border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+  }
+
+} /* メディアクエリ終了 */
